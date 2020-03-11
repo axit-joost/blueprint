@@ -118,6 +118,8 @@ class TraceCommand extends Command
         $table = $model->getConnection()->getTablePrefix() . $model->getTable();
         $schema = $model->getConnection()->getDoctrineSchemaManager();
 
+        $model->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+        
         $database = null;
         if (strpos($table, '.')) {
             list($database, $table) = explode('.', $table);
