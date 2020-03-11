@@ -117,9 +117,7 @@ class TraceCommand extends Command
     {
         $table = $model->getConnection()->getTablePrefix() . $model->getTable();
         $schema = $model->getConnection()->getDoctrineSchemaManager();
-
-        $model->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
-        
+       
         $database = null;
         if (strpos($table, '.')) {
             list($database, $table) = explode('.', $table);
@@ -142,6 +140,8 @@ class TraceCommand extends Command
 
     public static function columns(\Doctrine\DBAL\Schema\Column $column, string $key)
     {
+        $column->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+        
         $attributes = [];
 
         $type = self::translations($column->getType()->getName());
