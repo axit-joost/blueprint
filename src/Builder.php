@@ -2,7 +2,7 @@
 
 namespace Blueprint;
 
-use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Filesystem\Filesystem;
 
 class Builder
 {
