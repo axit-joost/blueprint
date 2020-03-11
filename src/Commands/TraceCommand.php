@@ -5,7 +5,7 @@ namespace Blueprint\Commands;
 use Blueprint\Blueprint;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 
 class TraceCommand extends Command
