@@ -140,8 +140,6 @@ class TraceCommand extends Command
 
     public static function columns(\Doctrine\DBAL\Schema\Column $column, string $key)
     {
-        $column->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
-        
         $attributes = [];
 
         $type = self::translations($column->getType()->getName());
